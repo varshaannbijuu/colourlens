@@ -6,17 +6,10 @@ from app.routes import colorize, history
 
 app = FastAPI()
 
-# 🔥 DEV-PROOF CORS CONFIG (NO MORE PORT ISSUES)
+# ✅ CORS FIX (ALLOW FRONTEND ON VERCEL)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost",
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://localhost:5175",
-        "http://localhost:5176",
-        "http://localhost:5177",
-    ],
+    allow_origins=["*"],  # 👈 allow all origins (fixes CORS)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
